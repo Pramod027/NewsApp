@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:newsbloc/model/news.dart';
+import 'package:newsbloc/data/export_data.dart';
 
 abstract class NewsRepository {
   Future<List<Article>> getAllNews();

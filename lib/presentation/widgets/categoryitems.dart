@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsbloc/ui/categoriespage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsbloc/presentation/screens/export_screens.dart';
 
 //news title category
 class TitleCategory extends StatelessWidget {
@@ -20,12 +21,12 @@ class TitleCategory extends StatelessWidget {
                     )));
       },
       child: Container(
-        margin: EdgeInsets.all(8.0),
         child: Stack(
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8.r),
               child: Container(
+                padding: EdgeInsets.all(10.w),
                 child: Text(
                   title,
                   style: TextStyle(
@@ -34,10 +35,8 @@ class TitleCategory extends StatelessWidget {
                       fontWeight: FontWeight.w500),
                 ),
                 alignment: Alignment.center,
-                width: 120,
-                height: 60,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   color: Colors.black,
                 ),
               ),

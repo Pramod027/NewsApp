@@ -1,14 +1,15 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:newsbloc/model/news.dart';
+import 'dart:convert';
 
-class SearchNewsRepo {
+import 'package:newsbloc/data/export_data.dart';
+
+class CategoryNews {
   List<Article> categoryNewsList = [];
 
   //method to fetch news
-  Future<void> getCategoryNews(String term) async {
+  Future<void> getCategoryNews(String category) async {
     String url =
-        "https://newsapi.org/v2/everything?q=$term&apiKey=9de6c2e484fc472587f9734a8411d9c1";
+        "http://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=df74fc47f0dd401bb5e56c34893a7795";
 
     var response = await http.get(url);
 

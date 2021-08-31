@@ -1,14 +1,14 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:newsbloc/model/news.dart';
 
-class HotNewsRepo {
-  List<Article> hotNewsList = [];
+import 'package:newsbloc/data/export_data.dart';
+
+class NewsSource {
+  List<Article> categorySourceList = [];
 
   //method to fetch news
-  Future<void> getHotNewsREpo() async {
-    String url =
-        "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=df74fc47f0dd401bb5e56c34893a7795";
+  Future<void> getNewsSource(String source) async {
+    String url = "";
 
     var response = await http.get(url);
 
@@ -30,7 +30,7 @@ class HotNewsRepo {
               content: item["content"]);
 
           //add data to news list
-          hotNewsList.add(newsArticleModel);
+          categorySourceList.add(newsArticleModel);
         }
       });
     }

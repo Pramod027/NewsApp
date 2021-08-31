@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsbloc/model/news.dart';
-import 'package:newsbloc/widgets/newsblog.dart';
-import 'package:newsbloc/api/services/search_news_repo.dart';
+import 'package:newsbloc/data/export_data.dart';
+import 'package:newsbloc/presentation/widgets/export_widget.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -75,10 +74,6 @@ class _NewsSearchState extends State<NewsSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//        appBar: header(context,
-//            isAppTitle: false,
-//            title: widget.categoryTitle[0].toString().toUpperCase() +
-//                widget.categoryTitle.toString().substring(1)),
         appBar: AppBar(
           title: Text(
             widget.categoryTitle[0].toString().toUpperCase() +
@@ -99,25 +94,21 @@ class _NewsSearchState extends State<NewsSearch> {
 
   Widget updateUI(List<Article> newsList) {
     return SingleChildScrollView(
-        child: Column(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.95,
-          child: ListView.builder(
-              physics: ClampingScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: newsList.length,
-              itemBuilder: (context, index) {
-                return NewsBlogTile(
-                  urlToImage: newsList[index].urlToImage,
-                  title: newsList[index].title,
-                  description: newsList[index].description,
-                  url: newsList[index].url,
-                );
-              }),
-        ),
-        Divider(),
-      ],
+        child: Container(
+      height: MediaQuery.of(context).size.height * 0.95,
+      child: ListView.builder(
+          physics: ClampingScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: newsList.length,
+          itemBuilder: (context, index) {
+            return NewsBlogTile(
+              urlToImage: newsList[index].urlToImage,
+              title: newsList[index].title,
+              description: newsList[index].description,
+              url: newsList[index].url,
+              author: newsList[index].author,
+            );
+          }),
     ));
   }
 }

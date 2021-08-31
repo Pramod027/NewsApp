@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsbloc/model/news.dart';
+import 'package:newsbloc/data/export_data.dart';
+import 'package:newsbloc/shared/app_styles.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class NewsDetails extends StatefulWidget {
@@ -18,18 +19,12 @@ class _NewsDetailsState extends State<NewsDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
-        elevation: 0,
-        title: Text(
-          article.title,
-          style: TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 17.0,
-              color: Colors.white,
-              fontWeight: FontWeight.bold),
-        ),
-      ),
+          backgroundColor: Colors.orange,
+          elevation: 0,
+          title: Text(
+            article.title,
+            style: AppStyles().categoryTopic,
+          )),
       body: Scaffold(
         body: WebView(
           initialUrl: article.url,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsbloc/ui/bottom_nav_bar/source_details.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsbloc/presentation/screens/bottom_nav_bar/export_bottom_nav.dart';
 
 class NewsSources extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _NewsSourcesState extends State<NewsSources> {
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0),
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -30,7 +31,7 @@ class _NewsSourcesState extends State<NewsSources> {
                   width: 100,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey[100],
@@ -45,6 +46,7 @@ class _NewsSourcesState extends State<NewsSources> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      //Use Aspect ratio insted
                       Container(
                         height: 60.0,
                         width: 60.0,

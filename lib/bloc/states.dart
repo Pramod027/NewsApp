@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:newsbloc/model/news.dart';
+import 'package:newsbloc/data/export_data.dart';
 
 abstract class NewsState extends Equatable {
   @override
@@ -17,12 +17,12 @@ class NewsLoadedState extends NewsState {
   NewsLoadedState({this.newsList});
 }
 
-class ArticleLoadedState extends NewsState {
-  final List<Article> newsList;
-  final category;
-
-  ArticleLoadedState({this.newsList, this.category});
-}
+//class ArticleLoadedState extends NewsState {
+//  final List<Article> newsList;
+//  final category;
+//
+//  ArticleLoadedState({this.newsList, this.category});
+//}
 
 class NewsErrorState extends NewsState {
   final error;

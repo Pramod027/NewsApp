@@ -1,11 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsbloc/api/exceptions/new_exceptions.dart';
-import 'package:newsbloc/api/services/repository.dart';
-import 'package:newsbloc/bloc/events.dart';
-import 'package:newsbloc/bloc/states.dart';
-import 'package:newsbloc/model/news.dart';
+import 'package:newsbloc/bloc/export_bloc.dart';
+import 'package:newsbloc/data/export_data.dart';
 
 class NewsBloc extends Bloc<NewsEvents, NewsState> {
   //List<News> newsList;

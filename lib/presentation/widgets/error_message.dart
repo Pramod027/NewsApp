@@ -4,7 +4,7 @@ class ShowErrorMessage extends StatelessWidget {
   final errorMessage;
   final Function onTap;
 
-  ShowErrorMessage({this.errorMessage,this.onTap});
+  ShowErrorMessage({this.errorMessage, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ShowErrorMessage extends StatelessWidget {
           child: Center(
         child: Text(
           errorMessage,
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
           textAlign: TextAlign.center,
         ),
       )),

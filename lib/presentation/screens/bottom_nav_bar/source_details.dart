@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:newsbloc/model/news.dart';
-import 'package:newsbloc/widgets/newsblog.dart';
-import 'package:newsbloc/api/services/news source_repo.dart';
+import 'package:newsbloc/data/export_data.dart';
+import 'package:newsbloc/presentation/widgets/export_widget.dart';
+import 'package:newsbloc/shared/app_styles.dart';
 
 class SourceDetails extends StatefulWidget {
   final newsSource;
@@ -36,10 +36,7 @@ class _SourceDetailsState extends State<SourceDetails> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text(
-            'BBC News',
-            style: TextStyle(fontSize: 18, color: Colors.white),
-          ),
+          title: Text('BBC News', style: AppStyles().categoryTitle),
           centerTitle: true,
         ),
         body: isLoading
@@ -63,11 +60,11 @@ class _SourceDetailsState extends State<SourceDetails> {
               itemCount: newsList.length,
               itemBuilder: (context, index) {
                 return NewsBlogTile(
-                  urlToImage: newsList[index].urlToImage,
-                  title: newsList[index].title,
-                  description: newsList[index].description,
-                  url: newsList[index].url,
-                );
+                    urlToImage: newsList[index].urlToImage,
+                    title: newsList[index].title,
+                    description: newsList[index].description,
+                    url: newsList[index].url,
+                    author: newsList[index].author);
               }),
         ),
         Divider(),
