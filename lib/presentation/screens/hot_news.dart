@@ -75,9 +75,7 @@ class _HotNewsState extends State<HotNews> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.r),
                           image: DecorationImage(
-                              image: newsList[index].urlToImage == null
-                                  ? AssetImage('assets/images/placeholder.jpg')
-                                  : NetworkImage(newsList[index].urlToImage),
+                              image: NetworkImage(newsList[index].urlToImage),
                               fit: BoxFit.cover)),
                     ),
                     Positioned(

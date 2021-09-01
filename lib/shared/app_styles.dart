@@ -55,5 +55,5 @@ class AppStyles {
       height: 1.2);
 
   final categoryTopic = TextStyle(
-      color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17.sp);
+      color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.sp);
 }

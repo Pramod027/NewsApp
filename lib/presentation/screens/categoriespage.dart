@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newsbloc/data/export_data.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsbloc/presentation/widgets/export_widget.dart';
 import 'package:newsbloc/shared/app_styles.dart';
 

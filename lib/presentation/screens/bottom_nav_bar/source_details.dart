@@ -36,7 +36,8 @@ class _SourceDetailsState extends State<SourceDetails> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text('BBC News', style: AppStyles().categoryTitle),
+          title: Text(widget.newsSource.toString().toUpperCase(),
+              style: AppStyles().categoryTitle),
           centerTitle: true,
         ),
         body: isLoading

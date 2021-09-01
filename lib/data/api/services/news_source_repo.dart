@@ -8,7 +8,8 @@ class NewsSource {
 
   //method to fetch news
   Future<void> getNewsSource(String source) async {
-    String url = "";
+    String url =
+        "https://newsapi.org/v2/everything?q=$source&apiKey=9de6c2e484fc472587f9734a8411d9c1";
 
     var response = await http.get(url);
 

@@ -1,3 +1,4 @@
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsbloc/shared/app_sized_box.dart';
@@ -18,56 +19,64 @@ class _NewPageState extends State<NewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        elevation: 0,
-        title: Text(widget.title, style: AppStyles().header),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.orange,
+      //   elevation: 0,
+      //   title: Text(widget.title, style: AppStyles().header),
+      // ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: AspectRatio(
-                        aspectRatio: 4 / 2,
-                        child: Image.network(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20)),
+                    child: AspectRatio(
+                        aspectRatio: 3 / 2,
+                        child:
+                            // CachedNetworkImage(
+                            //   imageUrl: widget.image,
+                            //   fit: BoxFit.cover,
+                            //   placeholder: (context, url) => Center(
+                            //     child: CircularProgressIndicator(),
+                            //   ),
+                            //   errorWidget: (context, url, error) => Icon(
+                            //     Icons.image,
+                            //     color: Colors.grey,
+                            //   ),
+                            // )
+                            Image.network(
                           widget.image,
                           fit: BoxFit.cover,
-                          width: double.maxFinite,
-                          // height: MediaQuery.of(context).size.height * 1 / 3,
+                        )),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        child: Text(
+                          widget.title,
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: 10.h,
-                      left: 10.w,
-                      child: DecoratedBox(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.h),
-                          child:
-                              Text('Current News', style: AppStyles().black600),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.greenAccent,
-                          borderRadius: BorderRadius.circular(8.r),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                // Text(article.url),
-                kSboxH10,
-                Text(widget.desc),
-
-                // Text(article.content)
-              ],
-            ),
+                  )
+                ],
+              ),
+              // Text(article.url),
+              kSboxH10,
+              Text(widget.desc),
+            ],
           ),
         ),
       ),

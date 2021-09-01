@@ -1,3 +1,4 @@
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newsbloc/presentation/screens/bottom_nav_bar/new_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,8 +34,19 @@ class NewsBlogTile extends StatelessWidget {
                   width: 100,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.r),
-                      child: Image.network(
-                        //CachedImage use insted of Network image
+                      child:
+                          // CachedNetworkImage(
+                          //   imageUrl: urlToImage,
+                          //   fit: BoxFit.cover,
+                          //   placeholder: (context, url) => Center(
+                          //     child: CircularProgressIndicator(),
+                          //   ),
+                          //   errorWidget: (context, url, error) => Icon(
+                          //     Icons.image,
+                          //     color: Colors.grey,
+                          //   ),
+                          // )
+                          Image.network(
                         urlToImage,
                         fit: BoxFit.cover,
                       )),

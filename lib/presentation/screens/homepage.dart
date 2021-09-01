@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +52,7 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.grey,
         // unselectedFontSize: 9.5,
         // selectedFontSize: 9.5,
+        selectedItemColor: Colors.blue,
         currentIndex: 0,
         type: BottomNavigationBarType.fixed,
         items: [
@@ -79,17 +78,16 @@ class _HomePageState extends State<HomePage> {
             activeIcon: Icon(EvaIcons.grid),
           ),
           BottomNavigationBarItem(
-            title: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SearchScreen()));
-              },
-              child: Padding(
-                  padding: EdgeInsets.only(top: 5.0),
-                  child: Text("Search",
-                      style: TextStyle(fontWeight: FontWeight.w600))),
-            ),
-            icon: Icon(EvaIcons.searchOutline),
+            title: Padding(
+                padding: EdgeInsets.only(top: 5.0),
+                child: Text("Search",
+                    style: TextStyle(fontWeight: FontWeight.w600))),
+            icon: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                },
+                child: Icon(EvaIcons.searchOutline)),
             activeIcon: Icon(EvaIcons.search),
           )
         ],
@@ -102,6 +100,20 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            // padding: EdgeInsets.symmetric(horizontal: 16.0),
+            height: 40,
+            child: ListView.builder(
+              itemCount: categoryItems.length,
+              itemBuilder: (context, index) {
+                return TitleCategory(
+                  title: categoryItems[index],
+                );
+              },
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
           BlocBuilder<NewsBloc, NewsState>(builder: (_, NewsState newsState) {
             //check states and update UI
             if (newsState is NewsErrorState) {
@@ -146,20 +158,6 @@ class _HomePageState extends State<HomePage> {
         ),
         kSboxH10,
         HotNews(),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          height: 70.0,
-          child: ListView.builder(
-            itemCount: categoryItems.length,
-            itemBuilder: (context, index) {
-              return TitleCategory(
-                title: categoryItems[index],
-              );
-            },
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-          ),
-        ),
         SizedBox(
           height: 5,
         ),

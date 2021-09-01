@@ -30,14 +30,25 @@ class TitleCategory extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w500),
                 ),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8.r),
-                  color: Colors.black,
+                  // color: Colors.black,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 10,
+              child: SizedBox(
+                width: 50,
+                child: Divider(
+                  thickness: 1,
+                  color: Colors.red,
                 ),
               ),
             )
