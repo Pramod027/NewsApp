@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsbloc/bloc/export_bloc.dart';
 import 'package:newsbloc/data/export_data.dart';
-import 'package:newsbloc/presentation/screens/bottom_nav_bar/export_bottom_nav.dart';
 import 'package:newsbloc/presentation/screens/export_screens.dart';
 import 'package:newsbloc/presentation/widgets/export_widget.dart';
 import 'package:newsbloc/shared/app_sized_box.dart';
 import 'package:newsbloc/shared/app_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
+        preferredSize: Size.fromHeight(50.h),
         child: AppBar(
           backgroundColor: Colors.orange,
           elevation: 0,
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             title: Padding(
-                padding: EdgeInsets.only(top: 5.0),
+                padding: EdgeInsets.only(top: 5.h),
                 child: Text("Home",
                     style: TextStyle(fontWeight: FontWeight.w600))),
             icon: Icon(EvaIcons.homeOutline),
@@ -66,31 +66,56 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             title: Padding(
-                padding: EdgeInsets.only(top: 5.0),
+                padding: EdgeInsets.only(top: 5.h),
                 child: Text("Sources",
                     style: TextStyle(fontWeight: FontWeight.w600))),
             icon: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => NewsSources()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => NewsSources()));
+                  Navigator.pushNamed(context, '/newsSource');
                 },
                 child: Icon(EvaIcons.gridOutline)),
             activeIcon: Icon(EvaIcons.grid),
           ),
           BottomNavigationBarItem(
             title: Padding(
-                padding: EdgeInsets.only(top: 5.0),
+                padding: EdgeInsets.only(top: 5.h),
                 child: Text("Search",
                     style: TextStyle(fontWeight: FontWeight.w600))),
             icon: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                  Navigator.pushNamed(context, '/searchScreen');
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => SearchScreen()));
                 },
                 child: Icon(EvaIcons.searchOutline)),
             activeIcon: Icon(EvaIcons.search),
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return Container(
+                  //  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  height: 60.h,
+                  child: ListView.builder(
+                    itemCount: categoryItems.length,
+                    itemBuilder: (context, index) {
+                      return TitleCategory(
+                        title: categoryItems[index],
+                      );
+                    },
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                );
+              });
+        },
+        child: Icon(Icons.ac_unit),
       ),
     );
   }
@@ -102,7 +127,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             // padding: EdgeInsets.symmetric(horizontal: 16.0),
-            height: 40,
+            height: 40.h,
             child: ListView.builder(
               itemCount: categoryItems.length,
               itemBuilder: (context, index) {
@@ -146,39 +171,39 @@ class _HomePageState extends State<HomePage> {
           child: CarouselSlider(
             options: CarouselOptions(
               enlargeCenterPage: false,
-              height: 200.0,
+              height: 200.h,
               viewportFraction: 0.9,
             ),
             items: getExpenseSliders(newsList),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.only(left: 10.w),
           child: Text("Top news", style: AppStyles().categoryTopic),
         ),
         kSboxH10,
         HotNews(),
-        SizedBox(
-          height: 5,
+        kSboxH4,
+        Padding(
+          padding: EdgeInsets.only(left: 10.w),
+          child: Text('Published Today', style: AppStyles().categoryTopic),
         ),
-        Text('Published Today', style: AppStyles().categoryTopic),
-        SizedBox(
-          height: 5,
-        ),
+        kSboxH4,
         Container(
-          height: 250,
+          height: 250.h,
           child: ListView.builder(
               shrinkWrap: true,
               itemCount: newsList.length,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 return NewsBlogTile(
-                  urlToImage: newsList[index].urlToImage,
-                  title: newsList[index].title,
-                  description: newsList[index].description,
-                  url: newsList[index].url,
-                  author: newsList[index].author,
-                );
+                    urlToImage: newsList[index].urlToImage,
+                    title: newsList[index].title,
+                    description: newsList[index].description,
+                    url: newsList[index].url,
+                    author: newsList[index].author,
+                    content: newsList[index].content,
+                    publishedAt: newsList[index].publishedAt);
               }),
         ),
       ],
@@ -204,12 +229,15 @@ class _HomePageState extends State<HomePage> {
         .map(
           (article1) => GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => NewsDetails(
-                              article: article1,
-                            )));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => NewsDetails(
+                //               article: article1,
+                //             ))
+                //             );
+                Navigator.pushNamed(context, '/newsDetails',
+                    arguments: article1);
               },
               child: CarouselSliderCard(
                 title: article1.title,

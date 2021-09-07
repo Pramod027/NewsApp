@@ -21,11 +21,13 @@ class _NewsSourcesState extends State<NewsSources> {
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              SourceDetails(newsSource: names[index])));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) =>
+                  //             SourceDetails(newsSource: names[index])));
+                  Navigator.pushNamed(context, '/sourceDetails',
+                      arguments: names[index]);
                 },
                 child: Container(
                   width: 100,

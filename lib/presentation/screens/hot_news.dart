@@ -46,12 +46,14 @@ class _HotNewsState extends State<HotNews> {
             padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 10.h),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => NewsDetails(
-                              article: newsList[index],
-                            )));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => NewsDetails(
+                //               article: newsList[index],
+                //             )));
+                Navigator.pushNamed(context, '/newsDetails',
+                    arguments: newsList[index]);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width / 2,

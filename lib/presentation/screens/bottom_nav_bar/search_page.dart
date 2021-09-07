@@ -28,13 +28,14 @@ class _SearchScreenState extends State<SearchScreen> {
               suffixIcon: IconButton(
                   icon: Icon(Icons.search),
                   onPressed: () {
-                    print(mycontroller.text);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NewsSearch(
-                                  categoryTitle: mycontroller.text,
-                                )));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => NewsSearch(
+                    //               categoryTitle: mycontroller.text,
+                    //             )));
+                    Navigator.pushNamed(context, '/newsSearch',
+                        arguments: mycontroller.text);
                   })),
         ),
       ),

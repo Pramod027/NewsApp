@@ -4,14 +4,16 @@ import 'package:newsbloc/presentation/screens/bottom_nav_bar/new_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewsBlogTile extends StatelessWidget {
-  final urlToImage, title, description, url, author;
+  final urlToImage, title, description, url, author, content, publishedAt;
 
   NewsBlogTile(
       {@required this.urlToImage,
       @required this.title,
       @required this.description,
       @required this.url,
-      @required this.author});
+      @required this.author,
+      @required this.content,
+      @required this.publishedAt});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,12 @@ class NewsBlogTile extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => NewPage(
-                    title: title, image: urlToImage, desc: description)));
+                    title: title,
+                    image: urlToImage,
+                    desc: description,
+                    author: author,
+                    publishedAt: publishedAt,
+                    content: content)));
       },
       child: Column(
         children: [
@@ -34,19 +41,7 @@ class NewsBlogTile extends StatelessWidget {
                   width: 100,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.r),
-                      child:
-                          // CachedNetworkImage(
-                          //   imageUrl: urlToImage,
-                          //   fit: BoxFit.cover,
-                          //   placeholder: (context, url) => Center(
-                          //     child: CircularProgressIndicator(),
-                          //   ),
-                          //   errorWidget: (context, url, error) => Icon(
-                          //     Icons.image,
-                          //     color: Colors.grey,
-                          //   ),
-                          // )
-                          Image.network(
+                      child: Image.network(
                         urlToImage,
                         fit: BoxFit.cover,
                       )),
