@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Relatedposts extends StatelessWidget {
   final String posts_image;
@@ -9,15 +10,15 @@ class Relatedposts extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 150,
-          width: 150,
+          height: 200.h,
+          width: 150.h,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.black, width: 1),
-              image: DecorationImage(image: AssetImage(posts_image))),
+              borderRadius: BorderRadius.circular(10.r),
+              image: DecorationImage(
+                  image: AssetImage(posts_image), fit: BoxFit.cover)),
         ),
         SizedBox(
-          width: 10,
+          width: 10.w,
         ),
       ],
     );

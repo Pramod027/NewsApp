@@ -108,6 +108,8 @@ class _NewsSearchState extends State<NewsSearch> {
               description: newsList[index].description,
               url: newsList[index].url,
               author: newsList[index].author,
+              content: newsList[index].content,
+              publishedAt: newsList[index].publishedAt,
             );
           }),
     ));

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:newsbloc/presentation/widgets/custom_details_image.dart';
-import 'package:newsbloc/presentation/widgets/custom_social_media.dart';
-import 'package:newsbloc/presentation/widgets/related_post.dart';
+import 'package:newsbloc/presentation/widgets/export_widget.dart';
+import 'package:newsbloc/shared/app_colors.dart';
 import 'package:newsbloc/shared/app_sized_box.dart';
 import 'package:newsbloc/shared/app_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,7 +73,7 @@ class _NewPageState extends State<NewPage> {
             Positioned(
               bottom: 0,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                 // height: 100,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.6,
@@ -83,8 +81,8 @@ class _NewPageState extends State<NewPage> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
+                        topLeft: Radius.circular(20.r),
+                        topRight: Radius.circular(20.r))),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,17 +118,17 @@ class _NewPageState extends State<NewPage> {
                           CustomSocialMedia(
                             app_image: 'assets/vector/facebook.svg',
                             app_name: 'facebook',
-                            color: Colors.blue,
+                            color: AppColor().fbColor,
                           ),
                           CustomSocialMedia(
                             app_image: 'assets/vector/twitter.svg',
                             app_name: 'Twitter',
-                            color: Colors.red,
+                            color: AppColor().twitterColor,
                           ),
                           CustomSocialMedia(
                             app_image: 'assets/vector/instagram.svg',
                             app_name: 'Instagram',
-                            color: Colors.pink,
+                            color: AppColor().instaColor,
                           ),
                         ],
                       ),
@@ -147,16 +145,16 @@ class _NewPageState extends State<NewPage> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             Relatedposts(
-                              posts_image: 'assets/screenshots/homepage.png',
+                              posts_image: 'assets/images/image1.jpg',
                             ),
                             Relatedposts(
-                              posts_image: 'assets/screenshots/homepage.png',
+                              posts_image: 'assets/images/image2.jpg',
                             ),
                             Relatedposts(
-                              posts_image: 'assets/screenshots/homepage.png',
+                              posts_image: 'assets/images/image3.jpg',
                             ),
                             Relatedposts(
-                              posts_image: 'assets/screenshots/homepage.png',
+                              posts_image: 'assets/images/image4.jpg',
                             )
                           ],
                         ),

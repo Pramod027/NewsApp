@@ -14,8 +14,8 @@ class CustomSocialMedia extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
-      decoration: BoxDecoration(
-          color: Colors.blue, borderRadius: BorderRadius.circular(5)),
+      decoration:
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
       child: Row(
         children: [
           SvgPicture.asset(app_image,

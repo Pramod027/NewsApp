@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsbloc/data/export_data.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsbloc/presentation/screens/export_screens.dart';
 import 'package:newsbloc/shared/export_shared.dart';
 
 class HotNews extends StatefulWidget {

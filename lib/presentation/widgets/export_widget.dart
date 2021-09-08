@@ -4,3 +4,6 @@ export 'package:newsbloc/presentation/widgets/categoryitems.dart';
 export 'package:newsbloc/presentation/widgets/custom_card.dart';
 export 'package:newsbloc/presentation/widgets/error_message.dart';
 export 'package:newsbloc/presentation/widgets/newsblog.dart';
+export 'package:newsbloc/presentation/widgets/custom_details_image.dart';
+export 'package:newsbloc/presentation/widgets/custom_social_media.dart';
+export 'package:newsbloc/presentation/widgets/related_post.dart';
